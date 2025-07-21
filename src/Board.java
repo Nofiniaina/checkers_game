@@ -1,9 +1,12 @@
 import type.ColorType;
+import utils.GameConstants;
 
 public class Board {
-	int rows = 10;
-	int columns = 10;
+	int rows = GameConstants.BOARD_ROWS;
+	int columns = GameConstants.BOARD_COLUMNS;
 	Cell[][] board;
+	
+	
 	
 	public Board() {
 		init();
@@ -30,8 +33,20 @@ public class Board {
 				}
 			}
 		}
-	}
+		
+		for(int i = 0; i<=3 ; i++) {
+			for(int j = 0; j<columns ; j++) {
+				
+			}
+		}
+		for(int i = 6; i<=9 ; i++) {
+			for(int j = 0; j<columns ; j++) {
+				
+			}
+		}
+	} 
  
+	// this is just a test 
 	public void printBoard() {
 		for(int i = 0; i<rows ; i++) {
 			for(int j = 0; j<columns ; j++) {

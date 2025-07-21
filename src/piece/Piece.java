@@ -1,3 +1,4 @@
+package piece;
 import type.ColorType;
 
 public class Piece {
