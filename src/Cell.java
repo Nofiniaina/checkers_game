@@ -1,11 +1,21 @@
+import piece.Piece;
 import type.ColorType;
 
 public class Cell {
 	private int rowPos;
 	private int colPos;
 	private ColorType color;
+	private Piece piece;
 	
 	
+	public Piece getPiece() {
+		return piece;
+	}
+
+	public void setPiece(Piece piece) {
+		this.piece = piece;
+	}
+
 	public ColorType getColor() {
 		return color;
 	}

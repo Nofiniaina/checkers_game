@@ -5,7 +5,16 @@ public class Piece {
 	protected int x;
 	protected int y;
 	protected ColorType color;
+	protected boolean dead = false;
 	
+	public boolean isDead() {
+		return dead;
+	}
+
+	public void setDead(boolean dead) {
+		this.dead = dead;
+	}
+
 	public ColorType getColor() {
 		return color;
 	}

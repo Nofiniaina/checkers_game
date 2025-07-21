@@ -1,13 +1,15 @@
+import piece.Pawn;
 import type.ColorType;
-import utils.GameConstants;
+import utils.Constants;
 
 public class Board {
-	int rows = GameConstants.BOARD_ROWS;
-	int columns = GameConstants.BOARD_COLUMNS;
+	final int rows = Constants.BOARD_ROWS;
+	final int columns = Constants.BOARD_COLUMNS;
 	Cell[][] board;
 	
-	
-	
+	Pawn[] whitePiece;
+	Pawn[] blackPiece;
+ 	
 	public Board() {
 		init();
 	}
@@ -32,6 +34,15 @@ public class Board {
 					}
 				}
 			}
+		}
+		
+		this.whitePiece = new Pawn[Constants.PIECE_NUMBER];
+		this.blackPiece = new Pawn[Constants.PIECE_NUMBER];
+		
+		/* Initialize pawn array */
+		for(int i = 0; i<20 ; i++) {
+			this.whitePiece[i] = new Pawn();
+			this.blackPiece[i] = new Pawn();
 		}
 		
 		for(int i = 0; i<=3 ; i++) {
