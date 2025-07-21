@@ -1,3 +1,4 @@
+package main;
 import java.awt.CardLayout;
 
 import javax.swing.JFrame;

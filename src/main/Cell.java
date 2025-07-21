@@ -1,3 +1,4 @@
+package main;
 import piece.Piece;
 import type.ColorType;
 

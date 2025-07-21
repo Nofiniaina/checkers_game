@@ -1,3 +1,4 @@
+package main;
 import piece.Pawn;
 import type.ColorType;
 import utils.Constants;
