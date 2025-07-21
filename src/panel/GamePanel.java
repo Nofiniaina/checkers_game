@@ -28,14 +28,10 @@ public class GamePanel extends JPanel {
 		);
 		topPanel.setBackground(Color.WHITE);
 		
-		JPanel contentPanel = new JPanel();
-		contentPanel.setBounds(0, Constants.SCREEN_HEIGHT / 8, 
-				Constants.SCREEN_WIDTH, (Constants.SCREEN_HEIGHT * 7 / 8)
-		);
-		contentPanel.setBackground(Color.BLACK);
+		BoardPanel boardpanel = new BoardPanel();
 		
 		this.add(topPanel);
-		this.add(contentPanel);
+		this.add(boardpanel);
 		
 		this.setFocusable(true);
 	}
