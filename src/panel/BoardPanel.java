@@ -21,11 +21,6 @@ public class BoardPanel extends JPanel {
 		
 		this.board = new Board();
 		
-//		this.setPreferredSize(new Dimension(
-//			Constants.SCREEN_WIDTH,
-//			Constants.SCREEN_HEIGHT * 7 / 8
-//		));
-//		this.setBackground(Color.BLACK);
 		this.setFocusable(true);
 	}
 	
@@ -36,6 +31,7 @@ public class BoardPanel extends JPanel {
 		Graphics2D g2 = (Graphics2D) g;
 		
 		drawBoard(g2);
+		drawPiece(g2);
 	}
 	
 	public void drawBoard(Graphics2D g2) {
@@ -63,6 +59,38 @@ public class BoardPanel extends JPanel {
             	}
             	x += cellSize;
             }
+            x = (boardPanelWidth - (cellSize * Constants.BOARD_COLUMNS)) / 2;
+            y += cellSize;
+            
+        }
+	}
+	
+	public void drawPiece(Graphics2D g2) {
+		int boardPanelWidth = getWidth();
+		int boardPanelHeight = getHeight();
+		
+		int cellSize = Math.min(boardPanelWidth/12, boardPanelHeight/12);
+		
+		int x = (boardPanelWidth - (cellSize * Constants.BOARD_COLUMNS)) / 2;
+		int y = cellSize;
+		int padding = cellSize / 6;
+		
+		for (int row = 0; row < Constants.BOARD_ROWS; row++) {
+            for (int col = 0; col < Constants.BOARD_COLUMNS; col++) {
+            	
+            	if(this.board.getCell(row, col).getPiece() != null){
+            		if(this.board.getCell(row, col).getPiece().getColor() == ColorType.BLACK) {
+            			g2.setColor(Color.BLACK);
+            			g2.fillOval(x + padding, y + padding, cellSize - 2 * padding, cellSize - 2 * padding);
+            		} else {
+            			g2.setColor(Color.WHITE);
+            			g2.fillOval(x + padding, y + padding, cellSize - 2 * padding, cellSize - 2 * padding);
+            		}
+            	}
+              	
+            	x += cellSize;
+            }
+            
             x = (boardPanelWidth - (cellSize * Constants.BOARD_COLUMNS)) / 2;
             y += cellSize;
             
