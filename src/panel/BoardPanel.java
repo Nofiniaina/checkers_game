@@ -1,16 +1,16 @@
 package panel;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
+import handler.BoardMoveHandler;
 import main.Board;
+import piece.Piece;
 import type.ColorType;
 import utils.Constants;
-
 
 
 public class BoardPanel extends JPanel {
@@ -22,6 +22,12 @@ public class BoardPanel extends JPanel {
 		this.board = new Board();
 		
 		this.setFocusable(true);
+		
+		this.addMouseListener(new BoardMoveHandler(this));
+	}
+	
+	public Board getBoard() {
+		return this.board;
 	}
 	
 	@Override
