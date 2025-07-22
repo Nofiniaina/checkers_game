@@ -42,18 +42,27 @@ public class Board {
 		
 		/* Initialize pawn array */
 		for(int i = 0; i<20 ; i++) {
-			this.whitePiece[i] = new Pawn();
-			this.blackPiece[i] = new Pawn();
+			this.whitePiece[i] = new Pawn(ColorType.WHITE);
+			this.blackPiece[i] = new Pawn(ColorType.BLACK);
 		}
 		
+		int pieceindex = 0;
 		for(int i = 0; i<=3 ; i++) {
-			for(int j = 0; j<columns ; j++) {
-				
+			for(int j = 0; j< columns ; j++) {
+				if(this.board[i][j].getColor() == ColorType.BLACK) {
+					this.board[i][j].setPiece(this.blackPiece[pieceindex]);
+					pieceindex++;
+				}
 			}
 		}
+		
+		pieceindex = 0;
 		for(int i = 6; i<=9 ; i++) {
-			for(int j = 0; j<columns ; j++) {
-				
+			for(int j = 0; j< columns ; j++) {
+				if(this.board[i][j].getColor() == ColorType.BLACK) {
+					this.board[i][j].setPiece(this.whitePiece[pieceindex]);
+					pieceindex++;
+				}
 			}
 		}
 	} 
@@ -77,7 +86,11 @@ public class Board {
 //	public void printBoard() {
 //		for(int i = 0; i<=9 ; i++) {
 //			for(int j = 0; j<=9 ; j++) {
-//				System.out.print(board[i][j].getColor() + " ");
+//				if(board[i][j].getPiece() == null) {
+//					System.out.print(" - ");
+//				} else {
+//					System.out.print(board[i][j].getPiece().getColor());
+//				}
 //			}
 //			System.out.println();
 //		}

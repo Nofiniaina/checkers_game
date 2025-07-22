@@ -7,6 +7,10 @@ public class Piece {
 	protected ColorType color;
 	protected boolean dead = false;
 	
+	public Piece(ColorType color) {
+		this.color = color;
+	}
+	
 	public boolean isDead() {
 		return dead;
 	}
@@ -21,10 +25,6 @@ public class Piece {
 
 	public void setColor(ColorType color) {
 		this.color = color;
-	}
-
-	public Piece() {
-		
 	}
 
 	public int getX() {
@@ -43,5 +43,7 @@ public class Piece {
 		this.y = y;
 	}
 	
-	
+	protected void move() {
+		
+	}
 }

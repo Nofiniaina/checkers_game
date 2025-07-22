@@ -1,7 +1,9 @@
 package piece;
 
+import type.ColorType;
+
 public class Pawn extends Piece{
-	public Pawn() {
-		super();
+	public Pawn(ColorType color) {
+		super(color);
 	}
 }
