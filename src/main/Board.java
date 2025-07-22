@@ -51,6 +51,10 @@ public class Board {
 			for(int j = 0; j< columns ; j++) {
 				if(this.board[i][j].getColor() == ColorType.BLACK) {
 					this.board[i][j].setPiece(this.blackPiece[pieceindex]);
+					
+					this.board[i][j].getPiece().setX(i);
+					this.board[i][j].getPiece().setY(j);
+					
 					pieceindex++;
 				}
 			}
@@ -61,6 +65,10 @@ public class Board {
 			for(int j = 0; j< columns ; j++) {
 				if(this.board[i][j].getColor() == ColorType.BLACK) {
 					this.board[i][j].setPiece(this.whitePiece[pieceindex]);
+					
+					this.board[i][j].getPiece().setX(i);
+					this.board[i][j].getPiece().setY(j);
+					
 					pieceindex++;
 				}
 			}
@@ -89,7 +97,8 @@ public class Board {
 //				if(board[i][j].getPiece() == null) {
 //					System.out.print(" - ");
 //				} else {
-//					System.out.print(board[i][j].getPiece().getColor());
+////					System.out.print(board[i][j].getPiece().getColor());
+//					System.out.print("["+ board[i][j].getPiece().getX() +","+ board[i][j].getPiece().getY() + "," + board[i][j].getPiece().getColor() +"]");
 //				}
 //			}
 //			System.out.println();
