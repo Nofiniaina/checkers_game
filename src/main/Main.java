@@ -32,6 +32,8 @@ public class Main {
 		
 		cardlayout.show(maincontainer, "menu");
 	
+//		Board board = new Board();
+//		board.printBoard();
 	}
 
 }

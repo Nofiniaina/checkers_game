@@ -57,14 +57,29 @@ public class Board {
 			}
 		}
 	} 
- 
-	// this is just a test 
-	public void printBoard() {
-		for(int i = 0; i<rows ; i++) {
-			for(int j = 0; j<columns ; j++) {
-				System.out.print(this.board[i][j].getColor() + " ");
-			}
-			System.out.println();
-		}
+	
+	public Cell[][] getBoard() {
+		return board;
 	}
+
+	public Cell getCell(int x, int y) {
+		return this.board[x][y];
+	}
+	
+	public Pawn[] getWhitePiece() {
+		return whitePiece;
+	}
+
+	public Pawn[] getBlackPiece() {
+		return blackPiece;
+	}
+
+//	public void printBoard() {
+//		for(int i = 0; i<=9 ; i++) {
+//			for(int j = 0; j<=9 ; j++) {
+//				System.out.print(board[i][j].getColor() + " ");
+//			}
+//			System.out.println();
+//		}
+//	}
 }

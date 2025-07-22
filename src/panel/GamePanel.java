@@ -29,6 +29,9 @@ public class GamePanel extends JPanel {
 		topPanel.setBackground(Color.WHITE);
 		
 		BoardPanel boardpanel = new BoardPanel();
+		boardpanel.setBounds(0, Constants.SCREEN_HEIGHT / 8, 
+				Constants.SCREEN_WIDTH, (Constants.SCREEN_HEIGHT * 7 / 8)
+		);
 		
 		this.add(topPanel);
 		this.add(boardpanel);
