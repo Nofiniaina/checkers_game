@@ -1,5 +1,6 @@
 package main;
 import piece.Pawn;
+import piece.Piece;
 import type.ColorType;
 import utils.Constants;
 
@@ -91,6 +92,23 @@ public class Board {
 		return blackPiece;
 	}
 
+	public boolean validateMove(Piece piece, int destRow, int destCol) {
+		int x = piece.getX();
+		int y = piece.getY();
+		if(piece.getColor() == ColorType.WHITE) {
+
+			boolean leftMove = ((y-1) == destCol) && ((x-1) == destRow);
+			boolean rightMove = ((y+1) == destCol) && ((x-1) == destRow);
+			
+			return (rightMove || leftMove);
+		} else {
+			boolean leftMove = ((y-1) == destCol) && ((x+1) == destRow);
+			boolean rightMove = ((y+1) == destCol) && ((x+1) == destRow);
+			
+			return (rightMove || leftMove);
+		}
+		
+	}
 //	public void printBoard() {
 //		for(int i = 0; i<=9 ; i++) {
 //			for(int j = 0; j<=9 ; j++) {

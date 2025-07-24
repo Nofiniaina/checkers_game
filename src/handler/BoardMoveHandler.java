@@ -6,6 +6,7 @@ import main.Board;
 import main.Cell;
 import panel.BoardPanel;
 import piece.Piece;
+import type.ColorType;
 import utils.Constants;
 
 public class BoardMoveHandler extends MouseAdapter {
@@ -39,11 +40,22 @@ public class BoardMoveHandler extends MouseAdapter {
 	            }
 	        } else {
 	            if (piece == null) {
-	                board.getCell(selectedPiece.getX(), selectedPiece.getY()).setPiece(null);
-	                selectedPiece.setX(row);
-	                selectedPiece.setY(col);
-	                clickedCell.setPiece(selectedPiece);
-	                selectedPiece = null;
+	            	if(clickedCell.getColor() == ColorType.BLACK) {
+	            		boolean validateMove = board.validateMove(selectedPiece, row, col);
+	            		
+	            		if(validateMove) {
+	            			board.getCell(selectedPiece.getX(), selectedPiece.getY()).setPiece(null);
+	            			selectedPiece.setX(row);
+			                selectedPiece.setY(col);
+			                clickedCell.setPiece(selectedPiece);
+			                selectedPiece = null;
+	            		} else {
+	            			selectedPiece = null;
+	            		}
+	            		
+	            		
+	            	}
+	                
 	            }
 	        }
 

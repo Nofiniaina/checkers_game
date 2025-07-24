@@ -46,4 +46,8 @@ public class Piece {
 	protected void move() {
 		
 	}
+	
+	public boolean validateMove() {
+		return true;
+	}
 }
