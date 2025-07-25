@@ -104,33 +104,53 @@ public class Board {
 	}
 
 	public boolean validateMove(Piece piece, int destRow, int destCol) {
-		int x = piece.getX();
-		int y = piece.getY();
+		int initialRow = piece.getX();
+		int initialCol = piece.getY();
 		if(piece.getColor() == ColorType.WHITE) {
 
-			boolean leftMove = ((y-1) == destCol) && ((x-1) == destRow);
-			boolean rightMove = ((y+1) == destCol) && ((x-1) == destRow);
+			boolean leftMove = ((initialCol-1) == destCol) && ((initialRow-1) == destRow);
+			boolean rightMove = ((initialCol+1) == destCol) && ((initialRow-1) == destRow);
 			
 			return (rightMove || leftMove);
 		} else {
-			boolean leftMove = ((y-1) == destCol) && ((x+1) == destRow);
-			boolean rightMove = ((y+1) == destCol) && ((x+1) == destRow);
+			boolean leftMove = ((initialCol-1) == destCol) && ((initialRow+1) == destRow);
+			boolean rightMove = ((initialCol+1) == destCol) && ((initialRow+1) == destRow);
 			
 			return (rightMove || leftMove);
 		}
 		
 	}
-//	public void printBoard() {
-//		for(int i = 0; i<=9 ; i++) {
-//			for(int j = 0; j<=9 ; j++) {
-//				if(board[i][j].getPiece() == null) {
-//					System.out.print(" - ");
-//				} else {
-////					System.out.print(board[i][j].getPiece().getColor());
-//					System.out.print("["+ board[i][j].getPiece().getX() +","+ board[i][j].getPiece().getY() + "," + board[i][j].getPiece().getColor() +"]");
-//				}
-//			}
-//			System.out.println();
-//		}
-//	}
+	
+	public boolean validateAttack(Piece piece, int destRow, int destCol) {
+		int initialRow = piece.getX();
+		int initialCol = piece.getY();
+		
+		int diagonalRow = destRow - initialRow;
+		int diagonalCol = destCol - initialCol;
+		
+		if(Math.abs(diagonalRow) == 2 && Math.abs(diagonalCol) == 2) {
+			int enemyRow = (initialRow + destRow) / 2;
+			int enemyCol = (initialCol + destCol) / 2;
+			
+			Piece enemyPiece = board[enemyRow][enemyCol].getPiece();
+			if(enemyPiece != null) {
+				if(enemyPiece.getColor() != piece.getColor() && board[destRow][destCol].getPiece() == null) {
+					return true;
+				}
+			}
+		}
+		
+		return false;
+	}
+	
+	public void defaultAttack(Piece piece, int destRow, int destCol) {
+		int initialRow = piece.getX();
+		int initialCol = piece.getY();
+		
+		int enemyRow = (initialRow + destRow) / 2;
+		int enemyCol = (initialCol + destCol) / 2;
+		
+		board[enemyRow][enemyCol].setPiece(null);
+	}
+
 }
