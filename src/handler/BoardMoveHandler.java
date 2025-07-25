@@ -41,18 +41,31 @@ public class BoardMoveHandler extends MouseAdapter {
 	        } else {
 	            if (piece == null) {
 	            	if(clickedCell.getColor() == ColorType.BLACK) {
-	            		boolean validateMove = board.validateMove(selectedPiece, row, col);
 	            		
-	            		if(validateMove) {
-	            			board.getCell(selectedPiece.getX(), selectedPiece.getY()).setPiece(null);
-	            			selectedPiece.setX(row);
-			                selectedPiece.setY(col);
-			                clickedCell.setPiece(selectedPiece);
-			                selectedPiece = null;
+	            		if(selectedPiece.getColor() == board.getTurn()) {
+	            			boolean validateMove = board.validateMove(selectedPiece, row, col);
+		            		
+		            		if(validateMove) {
+		            			board.getCell(selectedPiece.getX(), selectedPiece.getY()).setPiece(null);
+		            			selectedPiece.setX(row);
+				                selectedPiece.setY(col);
+				                clickedCell.setPiece(selectedPiece);
+				                
+				                System.out.println("Turn : " + board.getTurn());
+				                
+				                if(board.getTurn() == ColorType.WHITE) {
+				                	board.setTurn(ColorType.BLACK);
+				                } else if(board.getTurn() == ColorType.BLACK) {
+				                	board.setTurn(ColorType.WHITE);
+				                }
+				                
+				                selectedPiece = null;
+		            		} else {
+		            			selectedPiece = null;
+		            		}
 	            		} else {
 	            			selectedPiece = null;
-	            		}
-	            		
+	            		}	            		
 	            		
 	            	}
 	                

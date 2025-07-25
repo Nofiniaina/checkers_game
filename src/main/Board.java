@@ -12,8 +12,11 @@ public class Board {
 	Pawn[] whitePiece;
 	Pawn[] blackPiece;
  	
+	ColorType turn;
+	
 	public Board() {
 		init();
+		this.turn = ColorType.WHITE;
 	}
 	
 	public void init() {
@@ -90,6 +93,14 @@ public class Board {
 
 	public Pawn[] getBlackPiece() {
 		return blackPiece;
+	}
+
+	public ColorType getTurn() {
+		return turn;
+	}
+
+	public void setTurn(ColorType turn) {
+		this.turn = turn;
 	}
 
 	public boolean validateMove(Piece piece, int destRow, int destCol) {
