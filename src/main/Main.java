@@ -19,7 +19,7 @@ public class Main {
 		JPanel maincontainer = new JPanel(cardlayout);
 		
 		MainPanel mainpanel = new MainPanel(cardlayout, maincontainer);
-		GamePanel gamepanel = new GamePanel();
+		GamePanel gamepanel = new GamePanel(cardlayout, maincontainer);
 
 		maincontainer.add(mainpanel, "menu");
 		maincontainer.add(gamepanel, "game"); 

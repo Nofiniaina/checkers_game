@@ -15,7 +15,7 @@ import utils.Constants;
 
 public class BoardPanel extends JPanel {
 	
-	Board board;
+	private Board board;
 	
 	public BoardPanel() {
 		
